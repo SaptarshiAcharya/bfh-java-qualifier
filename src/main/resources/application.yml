@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:bfhdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+app:
+  participant:
+    name: "saptarshi acharya"
+    regNo: "22BCE1134"
+    email: "saptarshi.acharya2022@vitstudent.ac.in"
+  # If you already know your final queries, put them in these files.
+  sqlPaths:
+    odd: "classpath:sql/question1.sql"   # for odd last two digits
+    even: "classpath:sql/question2.sql"  # for even last two digits
+
+  endpoints:
+    base: "https://bfhldevapigw.healthrx.co.in"
+    generateWebhook: "/hiring/generateWebhook/JAVA"
+    submitFallback: "/hiring/testWebhook/JAVA"  # used if response doesn't include a webhook
